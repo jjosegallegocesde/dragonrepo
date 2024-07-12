@@ -32,13 +32,37 @@ public class ControladorDragon {
 
     @GetMapping
     public ResponseEntity<?> buscarDragones(){
-        return null;
+        try{
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(dragonServicio.buscarDragones());
+
+        }catch (Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(error.getMessage());
+
+        }
     }
 
-    /*@GetMapping
-    public ResponseEntity<?> buscarDragon(){
-        return null;
-    }*/
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscarDragon(@PathVariable Integer id){
+
+        try{
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(dragonServicio.buscarDragonPorId(id));
+
+        }catch (Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(error.getMessage());
+
+        }
+
+    }
 
     @PutMapping
     public ResponseEntity<?> editarDragon(){
