@@ -22,8 +22,8 @@ public class Dragon {
     @Column(name="numero_victorias_dragon")
     private Integer numeroVictorias;
 
-    @OneToMany
-    Jinete jinete;
+    /*@OneToMany
+    Jinete jinete;*/
 
 
 
